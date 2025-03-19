@@ -18,6 +18,8 @@ async function bootstrap() {
     ], // Replace with your frontend URL
   };
   app.enableCors();
+  // Set the global prefix for all routes to 'api'
+  app.setGlobalPrefix('api');
   const config = new DocumentBuilder()
     .setTitle('Currency conversion API')
     .setDescription('')

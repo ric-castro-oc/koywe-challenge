@@ -10,10 +10,11 @@ export class ExchangeProvider {
   async getExchangeRate(from: string, to: string): Promise<ExchangeRate> {
     try {
       const url = `${process.env.EXCHANGE_URL}?from=${from}&to=${to}`;
+      this.logger.log(`Quiering rate ${url}`);
       const response = await axios.get<ExchangeRate>(url);
 
       this.logger.log(
-        `Rate obtained for ${from} to ${to}: ${response.data.price}`,
+        `Rate obtained for ${from} to ${to}: ${response.data[from].price}`,
       );
       const rate: ExchangeRate = {
         from,

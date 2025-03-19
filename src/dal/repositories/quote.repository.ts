@@ -7,6 +7,7 @@ export class QuoteRepository {
   constructor(private prisma: PrismaService) {}
 
   async create(quote: Omit<Quote, 'id'>): Promise<Quote> {
+    
     return this.prisma.quote.create({
       data: quote,
     });
