@@ -24,7 +24,7 @@ koywe-challenge/
 ## Technologies
 
 - Node.js
-- Express.js
+- Nest.js
 - MongoDB (or other database)
 - Jest (for testing)
 
