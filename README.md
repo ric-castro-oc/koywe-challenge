@@ -1,70 +1,105 @@
-# NestJS Prisma App
-
-This project is a NestJS application that utilizes Prisma for database interactions. It is structured into several layers, including Business Logic Layer (BLL), Data Access Layer (DAL), Facades, Models, and Providers.
+# Koywe Challenge
 
 ## Project Structure
 
 ```
-nest-prisma-app
-├── src
-│   ├── main.ts                # Entry point of the application
-│   ├── app.module.ts          # Main application module
-│   ├── bll                     # Business Logic Layer
-│   ├── dal                     # Data Access Layer
-│   ├── facades                 # Facade layer
-│   ├── models                  # Data models and DTOs
-│   ├── providers               # Dependency injection providers
-│   └── utils                   # Utility functions
-├── prisma                      # Prisma schema files
-├── test                        # Test files
-├── .env                        # Environment variables
-├── .gitignore                  # Git ignore file
-├── nest-cli.json              # NestJS CLI configuration
-├── package.json                # NPM dependencies and scripts
-├── tsconfig.json              # TypeScript configuration
-└── tsconfig.build.json        # TypeScript build configuration
+koywe-challenge/
+├── src/
+│   ├── bll/
+│   ├── controllers/
+│   ├── dal/
+│   ├── facades/
+│   ├── models/
+│   ├── modules/
+│   ├── providers/
+│   ├── utils/
+├── test/
+├── config/
+├── db/
+├── public/
+├── README.md
+└── package.json
 ```
 
-## Setup Instructions
+## Technologies
 
-1. **Clone the repository:**
+- Node.js
+- Express.js
+- MongoDB (or other database)
+- Jest (for testing)
+
+## Installation Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/koywe-challenge.git
    ```
-   git clone https://github.com/ric-castro-oc/koywe-challenge
+2. Navigate to the project directory:
+   ```bash
    cd koywe-challenge
    ```
-
-2. **Install dependencies:**
-   ```
+3. Install dependencies:
+   ```bash
    npm install
    ```
+4. Set up the environment variables:
 
-3. **Set up the environment variables:**
-   Create a `.env` file in the root directory and configure your database connection string and any other necessary environment variables. Details can be found in file .env.example  
+Create a `.env` file in the root directory and configure your database connection string and any other necessary environment variables. Details can be found in file .env.example
 
-4. **setup the db with prisma:**
-   Generate the prisma library, create the database and run the seeds. Default credentials are: 
-   
-   u: user@example.com 
-   
-   p: 123456
+5. setup the db with prisma:
 
-   
-   ```
-   npx prisma generate
-   ```
-   ```
-   npx prisma migrate dev --name init
-   ```
+Generate the prisma library, create the database and run the seeds. Default credentials are:
 
-4. **Run the application:**
-   ```
-   npm run start
-   ```
+u: user@example.com
 
-5. **Run tests:**
-   ```
-   npm run test
-   ```
+p: 123456
+
+```
+npx prisma generate
+```
+
+```
+npx prisma migrate dev --name init
+```
+
+## Seed Execution
+
+To populate the database with initial data, run:
+
+```bash
+npm run seed
+```
+
+## Endpoint Descriptions
+
+| Method | Endpoint             | Description         |
+| ------ | -------------------- | ------------------- |
+| GET    | `/api/quote/:id`     | Fetch a quote by id |
+| POST   | `/api/quote`         | Create a quote      |
+| POST   | `/api/auth/register` | Create a user       |
+| POST   | `/api/auth/login`    | Access the app      |
+
+## Test Execution
+
+Run the test suite with:
+
+```bash
+npm test
+```
+
+For test coverage:
+
+```bash
+npm run test:coverage
+```
+
+## Run the app
+
+Execute the app in developement mode:
+
+```bash
+npm run start:dev
+```
 
 ## API Usage
 
